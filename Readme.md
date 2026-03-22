@@ -1,41 +1,39 @@
-# Disaster Drone - Dummy Datasets
+# Disaster Drone
 
-This repo contains scripts to generate large synthetic datasets for a multi-sensor disaster-response drone and a baseline model demo.
+Synthetic multi‑sensor data + vision experiments for a disaster‑response drone. The core work lives in `main.ipynb`, which walks through data generation, classic ML baselines, and a YOLO‑based detection demo with a simple Flask UI.
 
-## Datasets
-- `data/sensor_fusion_dataset.csv` includes TOF, IR, thermal, and environment features with labels `victim_present` and `victim_count`.
-- `data/battery_dataset.csv` includes battery telemetry with label `battery_status`.
+## Contents
+- `main.ipynb`: end‑to‑end notebook (data generation, Random Forest training, HOG baseline notes, YOLO demo, and a Flask + ngrok backend section).
+- `fused_sensor_training_data.csv`: synthetic sensor‑fusion dataset.
+- `fused_sensor_training_data_high_altitude.csv`: alternate synthetic dataset (same schema).
+- `templates/`: Flask HTML templates for upload + results.
+- `Static/Uploads/`: upload target folder for the Flask demo.
+- `data/`: sample images used for testing/visualization.
 
-## Generate Data
-```bash
-python generate_datasets.py
-```
+## Dataset Schema
+Both CSVs share the same columns:
+- `Timestamp`
+- `Pixel_X`
+- `Pixel_Y`
+- `Depth_mm`
+- `Temperature_C`
+- `ToF_Amplitude`
+- `Target_Label` (e.g., Victim / Surroundings / Heated Object)
 
-Optional size controls:
-```bash
-python generate_datasets.py --sensor_rows 300000 --battery_rows 200000
-```
+## Notebook Requirements
+The notebook imports the following Python packages:
+- `numpy`, `pandas`, `scikit-learn`
+- `opencv-python` (`cv2`)
+- `ultralytics` (YOLOv8)
+- `flask`, `werkzeug`, `pyngrok`
+- `joblib` / `pickle`
 
-## Baseline Algorithms
-Run the baseline surveillance and battery status rules:
-```bash
-python main.py
-```
+## Quick Start
+1. Open `main.ipynb` in Jupyter or VS Code.
+2. Run cells in order to generate data, train a baseline model, and explore the vision demo.
 
-## Train/Test Split Example (50/50)
-```python
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+## Flask UI (Templates)
+The HTML templates are in `templates/` and expect a Flask app to:
+- Accept an uploaded image at `/`
+- Render `result.html` with `victim_found` and `image_url`
 
-data = pd.read_csv("data/sensor_fusion_dataset.csv")
-X = data.drop(columns=["victim_present", "victim_count"])
-y = data["victim_present"]
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.5, random_state=42, stratify=y
-)
-
-model = RandomForestClassifier(n_estimators=200, random_state=42)
-model.fit(X_train, y_train)
-```
