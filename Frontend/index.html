@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI TOF Drone System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- MAIN SECTION -->
+    <section class="container">
+      <div class="container-overlay">
+        <div class="container-text">
+          <h1>
+            Every second we deploy isn’t just time — <br />
+            it’s a chance to save a life.
+          </h1>
+          <p>
+            Our system ensures that every second is used efficiently through
+            rapid detection, intelligent analysis, and timely response, turning
+            critical moments into life-saving opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIQUENESS our SYSTEM HAVE -->
+
+    <section class="unique">
+      <h4>INNOVATION AT CORE</h4>
+      <h2>
+        What makes our system <br />
+        unique?
+      </h2>
+
+      <div class="unique-container">
+        <!-- CARD 1 -->
+        <div class="card">
+          <h3>🚀 No Satellite Reliance</h3>
+
+          <p class="problem">
+            <strong>Problem:</strong> Most systems fail in disaster zones due to
+            lack of GPS signals.
+          </p>
+
+          <p class="solution">
+            <strong>Solution:</strong> Our system uses non-GPS navigation,
+            allowing drones to operate independently in harsh, blocked
+            environments.
+          </p>
+
+          <ul>
+            <li>Works in GPS-denied areas</li>
+            <li>Reliable in underground / collapsed zones</li>
+            <li>Continuous operation without signal loss</li>
+          </ul>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+          <h3>🧠 Dual AI Verification</h3>
+
+          <p class="problem">
+            <strong>Problem:</strong> Single-model detection often leads to
+            false positives.
+          </p>
+
+          <p class="solution">
+            <strong>Solution:</strong> We combine YOLOv8 (vision detection) with
+            an ensemble learning model for double-layer verification.
+          </p>
+
+          <ul>
+            <li>Higher accuracy detection</li>
+            <li>Reduced false alarms</li>
+            <li>Smart decision-making system</li>
+          </ul>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+          <h3>🌡️ Multi-Modal Sensing</h3>
+
+          <p class="problem">
+            <strong>Problem:</strong> Standard cameras fail in smoke, darkness,
+            or heat.
+          </p>
+
+          <p class="solution">
+            <strong>Solution:</strong> Uses RGB + Thermal imaging to detect
+            victims even in extreme conditions.
+          </p>
+
+          <ul>
+            <li>Detects in low visibility</li>
+            <li>Heat-based human identification</li>
+            <li>Works in fire & smoke environments</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 30px; color: #ffffff; font-family: 'Montserrat', sans-serif;">
+        Quick Scan Demo
+      </h3>
+      <p style="color: #c7d7ff; font-family: 'Roboto', sans-serif; margin-top: 8px;">
+        Upload a frame and run the model instantly.
+      </p>
+
+      <form
+        action="/"
+        method="POST"
+        enctype="multipart/form-data"
+        style="
+          margin-top: 16px;
+          padding: 16px 18px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 14px;
+          display: inline-flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+        "
+      >
+        <input
+          type="file"
+          name="image_file"
+          accept="image/*"
+          required
+          style="
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: white;
+            padding: 10px;
+            border-radius: 12px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            min-width: 220px;
+          "
+        />
+        <button
+          type="submit"
+          style="
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #27f3ff, #5a6bff);
+            color: #0b0b0b;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.28);
+          "
+        >
+          Run Model
+        </button>
+      </form>
+    </section>
+  </body>
+</html>
