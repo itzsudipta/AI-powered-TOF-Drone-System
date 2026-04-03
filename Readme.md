@@ -1,4 +1,4 @@
-# Disaster Drone
+# Efficient victim detection model
 
 Synthetic multi‑sensor data + vision experiments for a disaster‑response drone. The core work lives in `main.ipynb`, which walks through data generation, classic ML baselines, and a YOLO‑based detection demo with a simple Flask UI.
 
