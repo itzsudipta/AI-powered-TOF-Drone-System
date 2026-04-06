@@ -24,4 +24,4 @@ jobs:
         run: ls -la
 
       - name: Sync to S3
-        run: aws s3 sync ./frontend s3://aipoweredtofsystem --delete
+        run: aws s3 sync ./Frontend s3://aipoweredtofsystem --delete
