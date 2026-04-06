@@ -17,8 +17,12 @@ jobs:
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ROLE_NAME
+          role-to-assume: arn:aws:iam::646770357104:role/SystemAdmin
           aws-region: us-east-1
 
       - name: Sync to S3
-        run: aws s3 sync ./frontend s3://YOUR_FRONTEND_BUCKET --delete
+        run: aws s3 sync ./frontend s3://aipoweredtofsystem --delete
+      - name: Sync to S3
+        run: aws s3 sync ./frontend s3://aipoweredtofsystem --delete
+
+        
