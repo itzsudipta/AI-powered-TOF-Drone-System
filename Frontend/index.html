@@ -13,157 +13,297 @@
     />
   </head>
   <body>
-    <!-- MAIN SECTION -->
-    <section class="container">
-      <div class="container-overlay">
-        <div class="container-text">
-          <h1>
-            Every second we deploy isn’t just time — <br />
-            it’s a chance to save a life.
-          </h1>
-          <p>
-            Our system ensures that every second is used efficiently through
-            rapid detection, intelligent analysis, and timely response, turning
-            critical moments into life-saving opportunities.
-          </p>
+    <main class="page-shell">
+      <section class="container" id="home">
+        <div class="container-overlay">
+          <div class="container-text">
+            <h1>
+              Every second we deploy isn't just time<br />
+              - it's a chance to save a life.
+            </h1>
+            <p>
+              Our system ensures that every second is used efficiently through
+              rapid detection, intelligent analysis, and timely response,
+              turning critical moments into life-saving opportunities.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- UNIQUENESS our SYSTEM HAVE -->
+      <section class="unique" id="features">
+        <h4>INNOVATION AT CORE</h4>
+        <h2>
+          What makes our system<br />
+          unique?
+        </h2>
 
-    <section class="unique">
-      <h4>INNOVATION AT CORE</h4>
-      <h2>
-        What makes our system <br />
-        unique?
-      </h2>
+        <div class="unique-container">
+          <div class="card">
+            <h3>No Satellite Reliance</h3>
 
-      <div class="unique-container">
-        <!-- CARD 1 -->
-        <div class="card">
-          <h3>🚀 No Satellite Reliance</h3>
+            <p class="problem">
+              <strong>Problem:</strong> Most systems fail in disaster zones due
+              to lack of GPS signals.
+            </p>
 
-          <p class="problem">
-            <strong>Problem:</strong> Most systems fail in disaster zones due to
-            lack of GPS signals.
-          </p>
+            <p class="solution">
+              <strong>Solution:</strong> Our system uses non-GPS navigation,
+              allowing drones to operate independently in harsh, blocked
+              environments.
+            </p>
 
-          <p class="solution">
-            <strong>Solution:</strong> Our system uses non-GPS navigation,
-            allowing drones to operate independently in harsh, blocked
-            environments.
-          </p>
+            <ul>
+              <li>Works in GPS-denied areas</li>
+              <li>Reliable in underground / collapsed zones</li>
+              <li>Continuous operation without signal loss</li>
+            </ul>
+          </div>
 
-          <ul>
-            <li>Works in GPS-denied areas</li>
-            <li>Reliable in underground / collapsed zones</li>
-            <li>Continuous operation without signal loss</li>
-          </ul>
+          <div class="card">
+            <h3>Dual AI Verification</h3>
+
+            <p class="problem">
+              <strong>Problem:</strong> Single-model detection often leads to
+              false positives.
+            </p>
+
+            <p class="solution">
+              <strong>Solution:</strong> We combine YOLOv8 (vision detection)
+              with an ensemble learning model for double-layer verification.
+            </p>
+
+            <ul>
+              <li>Higher accuracy detection</li>
+              <li>Reduced false alarms</li>
+              <li>Smart decision-making system</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Multi-Modal Sensing</h3>
+
+            <p class="problem">
+              <strong>Problem:</strong> Standard cameras fail in smoke,
+              darkness, or heat.
+            </p>
+
+            <p class="solution">
+              <strong>Solution:</strong> Uses RGB + Thermal imaging to detect
+              victims even in extreme conditions.
+            </p>
+
+            <ul>
+              <li>Detects in low visibility</li>
+              <li>Heat-based human identification</li>
+              <li>Works in fire &amp; smoke environments</li>
+            </ul>
+          </div>
         </div>
+      </section>
 
-        <!-- CARD 2 -->
-        <div class="card">
-          <h3>🧠 Dual AI Verification</h3>
+      <section class="upload-intro">
+        <h4>MODEL TESTING PORTAL</h4>
+        <h2>
+          Upload a rescue image<br />
+          and run the model
+        </h2>
+      </section>
 
-          <p class="problem">
-            <strong>Problem:</strong> Single-model detection often leads to
-            false positives.
-          </p>
-
-          <p class="solution">
-            <strong>Solution:</strong> We combine YOLOv8 (vision detection) with
-            an ensemble learning model for double-layer verification.
-          </p>
-
-          <ul>
-            <li>Higher accuracy detection</li>
-            <li>Reduced false alarms</li>
-            <li>Smart decision-making system</li>
-          </ul>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="card">
-          <h3>🌡️ Multi-Modal Sensing</h3>
-
-          <p class="problem">
-            <strong>Problem:</strong> Standard cameras fail in smoke, darkness,
-            or heat.
-          </p>
-
-          <p class="solution">
-            <strong>Solution:</strong> Uses RGB + Thermal imaging to detect
-            victims even in extreme conditions.
-          </p>
-
-          <ul>
-            <li>Detects in low visibility</li>
-            <li>Heat-based human identification</li>
-            <li>Works in fire & smoke environments</li>
-          </ul>
-        </div>
-      </div>
-
-      <h3 style="margin-top: 30px; color: #ffffff; font-family: 'Montserrat', sans-serif;">
-        Quick Scan Demo
-      </h3>
-      <p style="color: #c7d7ff; font-family: 'Roboto', sans-serif; margin-top: 8px;">
-        Upload a frame and run the model instantly.
-      </p>
-
-      <form
-        action="/"
-        method="POST"
-        enctype="multipart/form-data"
-        style="
-          margin-top: 16px;
-          padding: 16px 18px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 14px;
-          display: inline-flex;
-          gap: 10px;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 6px 18px rgba(0,0,0,0.28);
-        "
-      >
-        <input
-          type="file"
-          name="image_file"
-          accept="image/*"
-          required
-          style="
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: white;
-            padding: 10px;
-            border-radius: 12px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-            min-width: 220px;
-          "
-        />
-        <button
-          type="submit"
-          style="
-            padding: 10px 20px;
-            font-size: 15px;
-            font-weight: 700;
-            background: linear-gradient(90deg, #27f3ff, #5a6bff);
-            color: #0b0b0b;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.28);
-          "
+      <section class="upload-strip">
+        <p class="upload-strip-text">
+          Upload a rescue image to test the detection model.
+        </p>
+        <form
+          class="upload-strip-form"
+          action="#"
+          method="post"
+          enctype="multipart/form-data"
         >
-          Run Model
-        </button>
-      </form>
-    </section>
+          <input
+            class="upload-strip-input"
+            type="file"
+            id="model-file"
+            name="model-file"
+            accept=".png,.jpg,.jpeg,.webp"
+          />
+          <button type="submit" class="upload-strip-button">Run Model</button>
+        </form>
+      </section>
+
+      <section class="performance-section">
+        <div class="performance-header">
+          <h4>WHY OUR MODEL PERFORMS BETTER</h4>
+          <h2>
+            Stable accuracy, stronger confidence, better field reliability
+          </h2>
+          <p>
+            Our ensemble-based approach delivers more dependable predictions by
+            combining multiple models instead of relying on a single classifier.
+            That means better robustness, fewer unstable outputs, and stronger
+            performance when real rescue conditions become noisy or uncertain.
+          </p>
+        </div>
+
+        <div class="performance-grid">
+          <article class="performance-card">
+            <div class="performance-visual">
+              <img
+                src="g1.jpg"
+                alt="Overall Model Accuracy"
+                class="performance-image"
+              />
+            </div>
+            <div class="performance-copy">
+              <h3>Overall Model Accuracy</h3>
+              <p>
+                The Ensemble model achieves the highest accuracy of
+                <b>84.0%</b>, outperforming both XGBoost and Random Forest. By
+                combining multiple models, it ensures more reliable and stable
+                predictions.
+              </p>
+              <ul>
+                <li><strong>Best Performance:</strong> Ensemble Model</li>
+                <li><strong>Accuracy:</strong> 0.840</li>
+                <li>
+                  <strong>Advantage:</strong> Improved robustness through model
+                  combination
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="performance-card">
+            <div class="performance-visual">
+              <img
+                src="g2.jpg"
+                alt="XGBoost Analysis"
+                class="performance-image"
+              />
+            </div>
+            <div class="performance-copy">
+              <h3>XGBoost Analysis</h3>
+              <p>
+                XGBoost performs exceptionally well in detecting
+                <b>non-victim cases</b>, but struggles to identify actual
+                victims, leading to missed detections.
+              </p>
+              <ul>
+                <li>
+                  <strong>Strength:</strong> High recall for "Not Present"
+                </li>
+                <li>
+                  <strong>Weakness:</strong> Very low victim recall (~0.05)
+                </li>
+                <li><strong>Impact:</strong> Risk of missing critical cases</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="performance-card">
+            <div class="performance-visual">
+              <img
+                src="g3.jpg"
+                alt="Random Forest Analysis"
+                class="performance-image"
+              />
+            </div>
+            <div class="performance-copy">
+              <h3>Random Forest Analysis</h3>
+              <p>
+                Random Forest shows similar behavior to XGBoost, with strong
+                performance for non-victim detection but weak identification of
+                victims.
+              </p>
+              <ul>
+                <li>
+                  <strong>Strength:</strong> Good majority class detection
+                </li>
+                <li>
+                  <strong>Weakness:</strong> Very low victim recall (~0.04)
+                </li>
+                <li><strong>Note:</strong> Slightly lower overall balance</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="performance-card">
+            <div class="performance-visual">
+              <img
+                src="g4.jpg"
+                alt="Ensemble Model Analysis"
+                class="performance-image"
+              />
+            </div>
+            <div class="performance-copy">
+              <h3>Ensemble Model Analysis
+              </h3>
+              <p>
+                The Ensemble model significantly improves victim detection while
+                maintaining high accuracy for non-victim cases, making it ideal
+                for real-world deployment.
+              </p>
+              <ul>
+                <li>
+                  <strong>Improved Recall:</strong> Better victim detection
+                  (~0.19)
+                </li>
+                <li>
+                  <strong>Balanced Performance:</strong> Across both classes
+                </li>
+                <li>
+                  <strong>Best Choice:</strong> Reliable for safety-critical
+                  applications
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="team-footer">
+        <div class="team-header">
+          <h4>MEET OUR TEAM</h4>
+          <h2>The minds behind the mission</h2>
+          <p>
+            A multidisciplinary team building AI-powered disaster response with
+            vision, sensing, and intelligent field analysis.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-member">
+            <div class="team-photo-wrap">
+              <img src="pr1.jpeg" alt="Sudipta Sarkar" class="team-photo" />
+            </div>
+            <h3>Rupanjana Majhi</h3>
+            <span>Team Lead</span>
+          </article>
+
+          <article class="team-member">
+            <div class="team-photo-wrap">
+              <img src="pr2.jpeg" alt="Krisendu Roy" class="team-photo" />
+            </div>
+            <h3>Krishnendu Roy</h3>
+            <span>Team Member</span>
+          </article>
+
+          <article class="team-member">
+            <div class="team-photo-wrap">
+              <img src="pr3.jpeg" alt="Rupanjana Majhi" class="team-photo" />
+            </div>
+            <h3>Sudipta Sarkar</h3>
+            <span>Team Member</span>
+          </article>
+
+          <article class="team-member">
+            <div class="team-photo-wrap">
+              <img src="pr4.jpeg" alt="Avirup Guha Biswas" class="team-photo" />
+            </div>
+            <h3>Avirup Guha Biswas</h3>
+            <span>Team Member</span>
+          </article>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>

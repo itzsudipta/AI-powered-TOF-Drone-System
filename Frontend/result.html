@@ -5,17 +5,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scan Result</title>
+    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat:wght@600&display=swap"
         rel="stylesheet">
 </head>
 
-<body style="margin:0;background:#070337;color:#ffffff;font-family:'Roboto',sans-serif;text-align:center;">
-    <div style="padding:32px 16px;">
+<body style="
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top, rgba(214, 221, 229, 0.28), transparent 24%),
+    linear-gradient(180deg, #0b1b2a 0%, #0a1830 24%, #070f1c 62%, #131a1d 100%);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  color:#f4f7ff;
+  font-family:'Roboto', sans-serif;
+  text-align:center;
+">
+    <div style="padding:36px 16px;">
         <h1 style="font-family:'Montserrat',sans-serif;margin-bottom:6px;">Scan Result</h1>
         <p style="font-size:16px;color:{MSG_COLOR};font-weight:700;margin-top:0;">{MSG_TEXT}</p>
 
         <div
-            style="margin:16px auto;max-width:820px;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;">
+            style="margin:16px auto;max-width:860px;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;">
             <img src="{IMAGE_URL}" style="width:100%;height:auto;border-radius:10px;" />
         </div>
 
@@ -25,5 +38,4 @@
         </a>
     </div>
 </body>
-
 </html>

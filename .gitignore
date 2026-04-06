@@ -1,0 +1,43 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+*.pem
+
+# Logs
+*.log
+
+# Model / cache artifacts
+*.onnx
+*.pt
+*.pth
+*.pkl
+*.joblib
+
+# Outputs / uploads
+backend/output/
+Frontend/output/
+frontend/output/
+Static/Uploads/
