@@ -33,7 +33,7 @@ Thumbs.db
 *.onnx
 *.pt
 *.pth
-*.pkl
+
 *.joblib
 
 # Outputs / uploads
