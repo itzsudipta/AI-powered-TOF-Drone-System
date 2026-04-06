@@ -3,25 +3,31 @@ import cv2
 import numpy as np
 import pandas as pd
 import joblib
+import boto3
+import tempfile
 from ultralytics import YOLO
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, abort
 from datetime import datetime
 
-# Project-relative paths (EB runs from project root)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
-BACKEND_DIR = os.path.join(BASE_DIR, "backend")
-OUTPUT_DIR = os.path.join(BACKEND_DIR, "output")
 RESULT_HTML_PATH = os.path.join(FRONTEND_DIR, "result.html")
 
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
 app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path="")
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 
-# Load models/data (keep files in project root)
+# Load models/data
 ensemble_model = joblib.load(os.path.join(BASE_DIR, "ensemble_sensor_model.pkl"))
 sensor_data = pd.read_csv(os.path.join(BASE_DIR, "fused_sensor_training_data_high_altitude.csv"))
 yolo_model = YOLO("yolov8l.pt")
+
+# S3 client
+OUTPUT_BUCKET = os.environ.get("OUTPUT_BUCKET")
+if not OUTPUT_BUCKET:
+    raise RuntimeError("OUTPUT_BUCKET env var is not set")
+
+s3 = boto3.client("s3")
 
 @app.get("/")
 def index():
@@ -30,10 +36,6 @@ def index():
 @app.get("/<path:filename>")
 def static_files(filename):
     return send_from_directory(FRONTEND_DIR, filename)
-
-@app.get("/output/<path:filename>")
-def output_file(filename):
-    return send_from_directory(OUTPUT_DIR, filename)
 
 @app.post("/")
 def process_image():
@@ -51,7 +53,7 @@ def process_image():
 
     results = yolo_model(image, classes=[0], conf=0.15, imgsz=1280)
     boxes = results[0].boxes
-    if not boxes:
+    if boxes is None:
         boxes = []
 
     confirmed = False
@@ -88,12 +90,31 @@ def process_image():
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_name = f"output_{ts}.png"
-    out_path = os.path.join(OUTPUT_DIR, out_name)
-    cv2.imwrite(out_path, image)
+
+    # Save to temp file and upload to S3
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+        cv2.imwrite(tmp.name, image)
+        s3.upload_file(tmp.name, OUTPUT_BUCKET, out_name)
+        tmp_path = tmp.name
+
+    # Cleanup temp file
+    try:
+        os.remove(tmp_path)
+    except Exception:
+        pass
+
+    # Presigned URL (valid 1 hour)
+    image_url = s3.generate_presigned_url(
+        "get_object",
+        Params={"Bucket": OUTPUT_BUCKET, "Key": out_name},
+        ExpiresIn=3600
+    )
 
     msg_text = "Confirmed: Victim Identified" if confirmed else "No victims found"
     msg_color = "#ff4d4d" if confirmed else "#41d07f"
-    image_url = f"/output/{out_name}"
+
+    if not os.path.exists(RESULT_HTML_PATH):
+        abort(500, description="result.html not found")
 
     with open(RESULT_HTML_PATH, "r", encoding="utf-8") as f:
         html = f.read()
@@ -105,6 +126,4 @@ def process_image():
     return html
 
 if __name__ == "__main__":
-    # EB sets PORT automatically
-    port = int(os.environ.get("PORT", 8000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=8000)
