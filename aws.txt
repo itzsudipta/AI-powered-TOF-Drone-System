@@ -1,0 +1,16 @@
+ssh -i "D:\Hack-o-NiT 26\AI-Powered_TOF_Sensor_Software\AI-Powered_TOF\AI-powered-TOF-Drone-System\AIVictimDetection.pem" ec2-user@13.221.208.21
+
+
+sudo systemctl status tof-backend
+
+sudo systemctl status nginx
+
+
+sudo systemctl start tof-backend
+
+curl -I http://127.0.0.1:8000/
+
+curl -I http://127.0.0.1/
+
+
+source /home/ec2-user/venv/bin/activate
