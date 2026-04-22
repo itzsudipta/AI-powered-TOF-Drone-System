@@ -82,5 +82,6 @@ This project is made possible by the dedication and hard work of our amazing tea
 ---
 
 <div align="center">
-  <p>Made with ❤️ for <b>Hack-o-NiT</b></p>
+  <p>Made with ❤️ </p>
+ <p>Team - <b>HalfBaked Engineers<b> </p>
 </div>
