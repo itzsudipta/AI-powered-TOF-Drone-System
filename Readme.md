@@ -83,5 +83,5 @@ This project is made possible by the dedication and hard work of our amazing tea
 
 <div align="center">
   <p>Made with ❤️ </p>
- <p>Team - <b>HalfBaked Engineers<b> </p>
+ <p><b>HalfBaked Engineers<b></p>
 </div>
