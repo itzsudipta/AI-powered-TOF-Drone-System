@@ -52,7 +52,7 @@ The project has reached a stable testing phase with the following milestones ach
 
 ---
 
-## 👥 Contributors
+## 👥 Meet our Team 
 
 This project is made possible by the dedication and hard work of our amazing team. 
 
