@@ -82,6 +82,6 @@ This project is made possible by the dedication and hard work of our amazing tea
 ---
 
 <div align="center">
-  <p>Made with ❤️ </p>
+  <p>Designed with ❤️ & logic </p>
  <p><b>HalfBaked Engineers<b></p>
 </div>
