@@ -60,19 +60,19 @@ This project is made possible by the dedication and hard work of our amazing tea
   <table>
     <tr>
       <td align="center">
-        <img src="frontend\pr3.jpeg" alt="Sudipta Sarkar" width="100px;"/><br />
+        <img src="frontend/pr3.jpeg" alt="Sudipta Sarkar" width="100px;"/><br />
         <b>Sudipta Sarkar</b>
       </td>
       <td align="center">
-        <img src="frontend\pr1.jpeg" alt="Rupanjana Majhi" width="100px;"/><br />
+        <img src="frontend/pr1.jpeg" alt="Rupanjana Majhi" width="100px;"/><br />
         <b>Rupanjana Majhi</b>
       </td>
       <td align="center">
-        <img src="frontend\pr2.jpeg" alt="Krishenendu Roy" width="100px;"/><br />
+        <img src="frontend/pr2.jpeg" alt="Krishenendu Roy" width="100px;"/><br />
         <b>Krishenendu Roy</b>
       </td>
       <td align="center">
-       <img src="frontend\pr4.jpeg" alt="Avirup Guha Biswas" width="100px;"/><br />
+       <img src="frontend/pr4.jpeg" alt="Avirup Guha Biswas" width="100px;"/><br />
         <b>Avirup Guha Biswas</b>
       </td>
     </tr>
