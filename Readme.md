@@ -1,6 +1,6 @@
 <div align="center">
   
-  # AI-Powered TOF Drone System
+  # NIRIKSHA-Ai-Powered-TOF-Drone-System
   
   <p align="center">
     <img src="https://img.shields.io/badge/Hack--o--NiT-Submission-8A2BE2?style=for-the-badge&logo=hackaday&logoColor=white" alt="Hack-o-NiT Badge" />
